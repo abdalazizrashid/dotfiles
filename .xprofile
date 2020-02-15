@@ -1,0 +1,5 @@
+xwallpaper --center ~/Downloads/wallpapers/wallpaper_0018.jpg &
+setxkbmap -option caps:backspace
+xset r rate 300 50 &
+
+

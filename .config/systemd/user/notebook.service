@@ -1,0 +1,8 @@
+[Unit]
+Description=Jupyter
+
+[Service]
+ExecStart=jupyter lab  --NotebookApp.notebook_dir=/home/aziz
+
+[Install]
+WantedBy=default.target
