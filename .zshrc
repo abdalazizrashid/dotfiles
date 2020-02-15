@@ -104,4 +104,5 @@ source $ZSH/oh-my-zsh.sh
 #. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 alias akg="bluetoothctl connect 00:42:79:02:31:18"
 
-alias config='/usr/bin/git --git-dir=/home/aziz/.cfg/ --work-tree=/home/aziz'
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
