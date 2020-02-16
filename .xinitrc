@@ -13,4 +13,5 @@ done &
 
 #xrandr --output eDP-1 --dpi 192 & 
 xrdb -merge ~/.Xresources 
+exec sxhkd &
 exec dwm 

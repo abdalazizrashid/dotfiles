@@ -103,6 +103,5 @@ source $ZSH/oh-my-zsh.sh
 #powerline-daemon -q
 #. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 alias akg="bluetoothctl connect 00:42:79:02:31:18"
-
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
+compdef _git dot
