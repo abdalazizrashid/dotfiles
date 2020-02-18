@@ -3,7 +3,11 @@ set nu
 set clipboard=unnamed
 filetype off                  " required
 source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/coc.vim
 filetype plugin indent on    " requid
+
+"Auto save
+autocmd TextChanged,TextChangedI <buffer> silent write
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -85,6 +89,30 @@ call togglebg#map("<F5>")
 
 "ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$']
+let maplocalleader="\<space>"
 
+"Latex related config
+let g:tex_flavor  = 'latex'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_progname = '/usr/bin/nvr'
+let g:vimtex_latexmk_progname= '/usr/bin/nvr'
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = "zathura"
 
-
+" NCM2
+augroup NCM2
+  autocmd!
+  " some other settings...
+  " uncomment this block if you use vimtex for LaTex
+  autocmd Filetype tex call ncm2#register_source({
+            \ 'name': 'vimtex',
+            \ 'priority': 8,
+            \ 'scope': ['tex'],
+            \ 'mark': 'tex',
+            \ 'word_pattern': '\w+',
+            \ 'complete_pattern': g:vimtex#re#ncm2,
+            \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+            \ })
+augroup END

@@ -14,4 +14,4 @@ super + z
     screenlock
 
 super + w
-    google-chrome-stable
+    chromium 

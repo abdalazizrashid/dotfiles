@@ -6,8 +6,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
@@ -18,8 +18,25 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'zxqfl/tabnine-vim'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'dense-analysis/ale'
+" latex plugins
+Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'lervag/vimtex'
+Plugin 'Konfekt/FastFold'
+Plugin 'matze/vim-tex-fold'
+" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+Plugin 'ncm2/ncm2'
+Plugin 'roxma/nvim-yarp'
 
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
 
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plugin 'ncm2/ncm2-bufword'
+Plugin 'ncm2/ncm2-path'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
