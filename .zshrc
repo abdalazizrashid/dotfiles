@@ -6,6 +6,7 @@ if [ "$TMUX" = "" ]; then tmux -u; fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/aziz/.oh-my-zsh"
 export TERM="tmux-256color"
+fpath+=~/.zfunc
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -105,3 +106,12 @@ source $ZSH/oh-my-zsh.sh
 alias akg="bluetoothctl connect 00:42:79:02:31:18"
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 compdef _git dot
+alias bat="cat /sys/class/power_supply/BAT0/capacity"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/aziz/Src/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aziz/Src/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/aziz/Src/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/aziz/Src/google-cloud-sdk/completion.zsh.inc'; fi
+
+PATH=$PATH:~/.local/bin/

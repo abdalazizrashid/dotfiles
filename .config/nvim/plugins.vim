@@ -26,6 +26,10 @@ Plugin 'matze/vim-tex-fold'
 " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
 Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'ayu-theme/ayu-vim' " or other package manager
+Plugin 'lifepillar/vim-gruvbox8' " or other package manager
 
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()

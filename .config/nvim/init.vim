@@ -76,13 +76,23 @@ syntax on
 "EOF
 "
 
-"Color theme
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme zenburn
-endif
+"if has('gui_running')
+"  set background=light
+"  colorscheme solarized
+"else
+"  set background=light
+"  colorscheme zenburn 
+"endif
+set termguicolors     " enable true colors support
+let g:gruvbox_plugin_hi_groups = 1
+let g:gruvbox_filetype_hi_groups = 1
+set background=light
+	colorscheme gruvbox8_hard
+
+"set t_Co=256   " This is may or may not needed.
+
+"set background=light
+"colorscheme PaperColor
 call togglebg#map("<F5>")
 
 
@@ -116,3 +126,7 @@ augroup NCM2
             \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
             \ })
 augroup END
+
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_CompileRule_pdf = 'arara -v $*'

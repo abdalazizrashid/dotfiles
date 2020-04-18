@@ -1,3 +1,4 @@
 set selection-clipboard clipboard
 set synctex true
 set synctex-editor-command "code -g %{input}:%{line}"
+set first-page-column 1:1

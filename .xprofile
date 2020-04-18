@@ -1,6 +1,7 @@
-xwallpaper --center ~/Downloads/wallpapers/wallpaper_0018.jpg &
+xwallpaper --center ~/Pictures/wallpapers/wallpaper_space_repetition.png &
 #setxkbmap -option caps:ctrl
 xinput disable 12
+xinput --set-prop "13" "libinput Accel Speed" 0.45
 xset r rate 300 60 &
-xset 600 
+#xset 600 
 

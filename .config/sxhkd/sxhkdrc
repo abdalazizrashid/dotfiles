@@ -15,3 +15,6 @@ super + z
 
 super + w
     chromium 
+
+super + shift + l
+    slock
