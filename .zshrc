@@ -6,7 +6,8 @@ if [ "$TMUX" = "" ]; then tmux -u; fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/aziz/.oh-my-zsh"
 export TERM="tmux-256color"
-fpath+=~/.zfunc
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -49,7 +50,7 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -72,7 +73,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git )
+plugins=(git poetry )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +108,7 @@ alias akg="bluetoothctl connect 00:42:79:02:31:18"
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 compdef _git dot
 alias bat="cat /sys/class/power_supply/BAT0/capacity"
+alias nn='i3 workspace' 
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/aziz/Src/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aziz/Src/google-cloud-sdk/path.zsh.inc'; fi
@@ -114,4 +116,5 @@ if [ -f '/home/aziz/Src/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aziz/Src
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/aziz/Src/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/aziz/Src/google-cloud-sdk/completion.zsh.inc'; fi
 
-PATH=$PATH:~/.local/bin/
+fpath+=~/.zfunc
+

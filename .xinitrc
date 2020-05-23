@@ -5,15 +5,15 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 # Statusbar loop
-while true; do
-	xsetroot -name "$( date +"%F %R" ) | $(cat /sys/class/power_supply/BAT0/capacity)"
-   sleep 1m    # Update time every minute
-done &
+#while true; do
+#	xsetroot -name "$( date +"%F %R" ) | $(cat /sys/class/power_supply/BAT0/capacity)"
+#   sleep 1m    # Update time every minute
+#done &
 
 
 #xrandr --output eDP-1 --dpi 192 & 
 xrdb -merge ~/.Xresources 
 xss-lock -l -- screenlock -n &
-unclutter &
+exec unclutter &
 exec sxhkd &
 exec i3 

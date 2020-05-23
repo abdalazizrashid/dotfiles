@@ -13,8 +13,8 @@ ctrl + shift + @Print
 super + z
     screenlock
 
-super + w
+super + shift + w
     chromium 
 
-super + shift + l
+super + shift + alt + l
     slock
