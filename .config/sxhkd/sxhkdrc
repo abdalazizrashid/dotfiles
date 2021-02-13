@@ -14,7 +14,12 @@ super + z
     screenlock
 
 super + shift + w
-    chromium 
+    firefox 
 
 super + shift + alt + l
     slock
+
+# negative -w arg to account for a border width (default: 100%)
+alt + s
+    tdrop -ma -w -4 -y 100 -s dropdown st
+

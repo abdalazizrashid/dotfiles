@@ -7,3 +7,6 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+export PATH=${HOME}/tools/vim/bin:$PATH
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

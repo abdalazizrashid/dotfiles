@@ -1,19 +1,29 @@
-if [ "$TMUX" = "" ]; then tmux -u; fi
+#if [ "$TMUX" = "" ]; then tmux -u; fi
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
 
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/aziz/.oh-my-zsh"
 export TERM="tmux-256color"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PYTHONBREAKPOINT=ipdb.set_trace
+export EDITOR=nvim
+export VDPAU_DRIVER=va_gl
+export LIBVA_DRIVER_NAME=i965
 
-
+unsetopt nomatch
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="nebirhos"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,7 +83,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git poetry )
+plugins=(git virtualenv autoswitch_virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,11 +95,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -118,3 +128,7 @@ if [ -f '/home/aziz/Src/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/az
 
 fpath+=~/.zfunc
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.poetry/bin:$PATH"
