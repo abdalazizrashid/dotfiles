@@ -2,6 +2,8 @@ runtime plugins.vim
 runtime lang.vim
 runtime snippets.vim
 runtime netrw.vim
+runtime coc.vim
+runtime fzf.vim
 
 
 "Config Section
@@ -9,7 +11,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme blue-mood "vim-monokai-tasty
+colorscheme vim-monokai-tasty  
 
 set foldmethod=syntax
 set relativenumber                  " line numbers
@@ -61,14 +63,18 @@ augroup ft_tex
 augroup END
 
 " SPELL CHECK
-setlocal spell
+" setlocal spell
 set spelllang=nl,en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
 " Docstring folding for python
-syn region  pythonString matchgroup=pythonTripleQuotes 
-      \ start=+[uU]\=\z('''\|"""\)+ end="\z1" keepend fold
-      \ contains=pythonEscape,pythonSpaceError,pythonDoctest,@Spell
+"syn region  pythonString matchgroup=pythonTripleQuotes 
+"      \ start=+[uU]\=\z('''\|"""\)+ end="\z1" keepend fold
+"      \ contains=pythonEscape,pythonSpaceError,pythonDoctest,@Spell
 
+
+
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 

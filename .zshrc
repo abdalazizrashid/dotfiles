@@ -132,3 +132,4 @@ fpath+=~/.zfunc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.poetry/bin:$PATH"
+[ -f "/home/aziz/.ghcup/env" ] && source "/home/aziz/.ghcup/env" # ghcup-env

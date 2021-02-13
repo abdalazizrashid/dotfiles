@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-
 "Arduino 
 Plug 'stevearc/vim-arduino'
 " let Vundle manage Vundle, required
@@ -20,26 +19,19 @@ Plug 'mbbill/undotree'
 " Plug 'nvie/vim-flake8'
 Plug 'lervag/vimtex'
 Plug 'patstockwell/vim-monokai-tasty'
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
-Plug 'RishabhRD/popfix'
-Plug 'RishabhRD/nvim-lsputils'
-Plug 'bfrg/vim-cpp-modern'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
 Plug 'nvie/vim-flake8'
 Plug 'cespare/vim-toml'
+" COC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" FZF
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'antoinemadec/coc-fzf'
+" Fugitive
+Plug 'tpope/vim-fugitive'
+
 call plug#end() 
-
-"lua require("lsp_config")
-"lua require'lspconfig'.pyls_ms.setup{}
-
-
 

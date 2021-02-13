@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/aziz/idao-2021'
+let g:netrw_dirhist_1='/home/aziz/.config/nvim'
 let g:netrw_dirhist_0='/home/aziz/dotfiles-1'
 let g:netrw_dirhist_9='/home/aziz'
 let g:netrw_dirhist_8='/usr/share/zoneinfo/Europe'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='/home/aziz/.config/sway'
 let g:netrw_dirhist_5='/boot'
 let g:netrw_dirhist_4='/boot/loader'
 let g:netrw_dirhist_3='/boot/loader/entries'
-let g:netrw_dirhist_2='/boot/EFI'
-let g:netrw_dirhist_1='/boot/EFI/Linux'

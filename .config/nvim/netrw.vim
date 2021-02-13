@@ -19,7 +19,7 @@ function! ToggleNetrw()
 endfunction
 
 " Add your own mapping. For example:
-noremap <silent> <C-n> :call ToggleNetrw()<CR>
+" noremap <silent> <C-n> :call ToggleNetrw()<CR>
 
 " Tweaks for browsing
 let g:netrw_banner=0        " disable annoying banner
