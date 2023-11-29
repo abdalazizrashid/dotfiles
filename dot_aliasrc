@@ -1,0 +1,2 @@
+alias cz='chezmoi'
+alias reauthor="sed -i '' 's/From: Ivaniv Anton <korzinkayablok@gmail.com>/From: Abdalaziz Rashid <abdalaziz.rashid@outlook.com>/' $1"
