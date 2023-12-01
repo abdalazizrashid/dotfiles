@@ -1,5 +1,5 @@
 if [[ -r ~/.aliasrc ]]; then
-    . ~/.aliasrc
+    source ~/.aliasrc
 fi
 
 if [[ -n $SSH_CONNECTION ]]; then
