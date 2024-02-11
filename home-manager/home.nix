@@ -12,15 +12,15 @@ let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
     # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
-    ref = "nixos-23.05";
+    ref = "nixos-23.11";
   });
 in
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "aziz";
-  home.homeDirectory = "/Users/aziz";
+  home.username = builtins.getEnv("USER");
+  home.homeDirectory = builtins.getEnv("HOME");
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -109,34 +109,50 @@ in
     #nixvim.nixDarwinModules.nixvim
   ];
   programs.nixvim = {
+    enable = true;
+    globals = {
+      mapleader = ",";
+    };
     options = {
       number = true;
       relativenumber = true;
       shiftwidth = 2;
     };
-#    keymaps = [
-#      {
-#        key = ";";
-#        action = ":";
-#      }
-#      {
-#        mode = "n";
-#        key = "<leader>m";
-#        options.silent = true;
-#        action = "<cmd>!make<CR>";
-#      }
-#      {
-#        key = "jk";
-#        action = "<Esc>";
-#      }
-#    ];
+    keymaps = [
+      {
+        key = ";";
+        action = ":";
+      }
+      {
+        mode = "n";
+        key = "<leader>m";
+        options.silent = true;
+        action = "<cmd>!make<CR>";
+      }
+      {
+        key = "jk";
+        action = "<Esc>";
+      }
+    ];
   # Referencehttps://nix-community.github.io/nixvim/plugins/lsp/index.html
   plugins.lsp = {
     enable = true;
     servers = {
       lua-ls.enable = true;
       pyright.enable = true;
-      nix.enable = true;
+    };
+    keymaps = {
+      diagnostic = {
+        "<leader>j" = "goto_next";
+        "<leader>k" = "goto_prev";
+      };
+      lspBuf = {
+        K = "hover";
+        gD = "references";
+        gd = "definition";
+        gi = "implementation";
+        gt = "type_definition";
+      };
     };
 };
   extraPlugins = with pkgs.vimPlugins; [
@@ -157,7 +173,6 @@ in
       (fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
     ];
   };
-  programs.nixvim.enable = true;
 
 
   # Let Home Manager install and manage itself.
