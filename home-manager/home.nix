@@ -99,7 +99,6 @@ in
   };
   
  
-  # Neovim settings
   imports = [
     # For home-manager
     nixvim.homeManagerModules.nixvim
@@ -107,7 +106,9 @@ in
     #nixvim.nixosModules.nixvim
     # For nix-darwin
     #nixvim.nixDarwinModules.nixvim
+#    "${home.homeDirectory}/.config/tmux.nix"
   ];
+  # Neovim settings
   programs.nixvim = {
     enable = true;
     globals = {
@@ -129,17 +130,18 @@ in
         options.silent = true;
         action = "<cmd>!make<CR>";
       }
-      {
-        key = "jk";
-        action = "<Esc>";
-      }
+#      {
+#        key = "jk";
+#        action = "<Esc>";
+#      }
     ];
-  # Referencehttps://nix-community.github.io/nixvim/plugins/lsp/index.html
+  # Reference https://nix-community.github.io/nixvim/plugins/lsp/index.html
   plugins.lsp = {
     enable = true;
     servers = {
       lua-ls.enable = true;
       pyright.enable = true;
+      rnix-lsp.enable = true;
     };
     keymaps = {
       diagnostic = {
@@ -151,7 +153,7 @@ in
         gD = "references";
         gd = "definition";
         gi = "implementation";
-        gt = "type_definition";
+        gy = "type_definition";
       };
     };
 };
@@ -173,8 +175,14 @@ in
       (fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
     ];
   };
-
-
+ # TODO: what if this is defined in another file? Merge it!
+#  programs.fish = {
+#    enable = true;
+#    shellInit = ''
+#      fish_add_path ${t-smart-manager}/share/tmux-plugins/t-smart-tmux-session-manager/bin/
+#    '';
+#  };
+#
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
