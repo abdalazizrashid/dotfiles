@@ -119,7 +119,6 @@ in
       relativenumber = true;
       shiftwidth = 2;
     };
-<<<<<<< HEAD
     keymaps = [
       {
         key = ";";
