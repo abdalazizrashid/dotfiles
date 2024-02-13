@@ -119,6 +119,7 @@ in
       relativenumber = true;
       shiftwidth = 2;
     };
+<<<<<<< HEAD
     keymaps = [
       {
         key = ";";
@@ -135,13 +136,14 @@ in
 #        action = "<Esc>";
 #      }
     ];
-  # Reference https://nix-community.github.io/nixvim/plugins/lsp/index.html
   plugins.lsp = {
     enable = true;
     servers = {
       lua-ls.enable = true;
       pyright.enable = true;
       rnix-lsp.enable = true;
+      html.enable = true;
+      tsserver.enable = true;
     };
     keymaps = {
       diagnostic = {
@@ -158,21 +160,19 @@ in
     };
 };
   extraPlugins = with pkgs.vimPlugins; [
-      vim-nix
       ctrlp
       editorconfig-vim
-      gruvbox
+      #gruvbox
       nerdtree
       tabular
-      vim-elixir
       vim-nix
       vim-markdown
-      nvim-lspconfig
+     # nvim-lspconfig
       nvim-treesitter.withAllGrammars
-      plenary-nvim
-      gruvbox-material
-      mini-nvim
-      (fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
+      #plenary-nvim
+      #gruvbox-material
+      #mini-nvim
+      #(fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
     ];
   };
  # TODO: what if this is defined in another file? Merge it!
