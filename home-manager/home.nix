@@ -97,8 +97,29 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+  programs.bash.enable = true;
+  programs.fish.enable = true;
+  programs.zsh.enable = true;
+  programs.starship.enable = true;
+
+  programs.git = {
+    enable = true;
+    userEmail = "abdalaziz.rashid@outlook.com";
+    userName = "abdalazizrashid";
+    delta.enable = true;
+
+    extraConfig.alias = {
+      st = "status --short --untracked-files=no";
+      fuckme = "reset --hard HEAD";
+      fuckyou = "push --force";
+      please = "push --force-with-lease";
+    };
+  };
+
   
- 
   imports = [
     # For home-manager
     nixvim.homeManagerModules.nixvim
@@ -168,10 +189,58 @@ in
       vim-markdown
      # nvim-lspconfig
       nvim-treesitter.withAllGrammars
-      #plenary-nvim
+      plenary-nvim
       #gruvbox-material
-      #mini-nvim
-      #(fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
+      (fromGitHub "HEAD" "nvim-telescope/telescope.nvim")
+    ];
+  extraConfigLua = ''
+    -- Telescope recommended keybindings 
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+    '';
+  };
+  programs.tmux = {
+    enable = true;
+    keyMode = "vi";
+
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      gruvbox
+      cpu
+      pain-control
+      fpp
+      {
+        plugin = resurrect;
+        extraConfig =
+          let
+            resurrectPrograms' = [
+              "vi"
+              "~vim->vim"
+              "~nvim->nvim"
+              "less"
+              "more"
+              "man"
+            ];
+            sep = " ";
+            hasWhiteSpaces = p: (builtins.match ".*[ \n\r\t].*" p) != null;
+            escapeProg = p: if (hasWhiteSpaces p) then ''"${p}"'' else p;
+            resurrectPrograms = lib.concatMapStringsSep sep escapeProg resurrectPrograms';
+          in
+          ''
+            set -g @ressurect-processes '${resurrectPrograms}'
+            set -g @resurrect-strategy-vim 'session'
+          '';
+      }
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '30'
+        '';
+      }
     ];
   };
  # TODO: what if this is defined in another file? Merge it!
