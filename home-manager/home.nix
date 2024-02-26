@@ -18,6 +18,11 @@ let
   user = builtins.getEnv ("USER");
 
 in {
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = user;
