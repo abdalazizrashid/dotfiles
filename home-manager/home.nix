@@ -68,6 +68,7 @@ in {
     bat
     man
     tmux
+    tree-sitter
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -100,12 +101,11 @@ in {
   #
   #  /etc/profiles/per-user/aziz/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = { EDITOR = "nvim"; LC_ALL="en_US.UTF-8"; LANG="en_US.UTF-8"; };
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.bash.enable = false;
-  programs.fish.enable = true;
   programs.zsh.enable = false;
   programs.starship.enable = true;
 
@@ -308,12 +308,11 @@ in {
     ];
   };
   # TODO: what if this is defined in another file? Merge it!
-  #  programs.fish = {
-  #    enable = true;
-  #    shellInit = ''
-  #      fish_add_path ${t-smart-manager}/share/tmux-plugins/t-smart-tmux-session-manager/bin/
-  #    '';
-  #  };
+  programs.fish = {
+      enable = true;
+      shellInit = ''
+      '';
+    };
   #
   # Let Home Manager install and manage itself.
   # users.users.${user} = { programs.fish.enable = true; };
