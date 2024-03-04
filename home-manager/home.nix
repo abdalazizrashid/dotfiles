@@ -13,7 +13,7 @@ let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
     # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
-    ref = "nixos-23.11";
+    # ref = "nixos-unstable";
   });
   user = builtins.getEnv ("USER");
 
@@ -217,6 +217,14 @@ in {
 #          };
 #        };
       };
+      luasnip = {
+        enable = true;
+        extraConfig = {
+          enable_autosnippets = true;
+          store_selection_keys = "<Tab>";
+        };
+      };
+      friendly-snippets.enable = true;
     };
     extraPlugins = with pkgs.vimPlugins; [
       ctrlp
@@ -231,6 +239,7 @@ in {
       cmp-buffer
       cmp-path
       cmp-cmdline
+      cmp_luasnip
       nvim-cmp
     ];
     extraConfigLua = (builtins.readFile ~/.config/nvim/_init.lua);
