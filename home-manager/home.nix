@@ -69,6 +69,7 @@ in {
     man
     tmux
     tree-sitter
+    zellij
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -108,7 +109,10 @@ in {
   programs.bash.enable = false;
   programs.zsh.enable = false;
   programs.starship.enable = true;
-
+  programs.zellij = {
+    enable = true;
+    enableFishIntegration = true;
+  };
   programs.git = {
     enable = true;
     userEmail = "abdalaziz.rashid@outlook.com";
