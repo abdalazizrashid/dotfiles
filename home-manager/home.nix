@@ -110,7 +110,7 @@ in {
   programs.zsh.enable = false;
   programs.starship.enable = true;
   programs.zellij = {
-    enable = true;
+    enable = false;
     enableFishIntegration = true;
   };
   programs.git = {
