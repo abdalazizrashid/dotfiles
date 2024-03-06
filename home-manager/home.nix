@@ -169,36 +169,36 @@ in {
       #      }
     ];
     plugins = {
-       lsp = {
-       enable = true;
-        servers = {
-          lua-ls.enable = true;
-          pyright.enable = true;
-          rnix-lsp.enable = true;
-          html.enable = true;
-          tsserver.enable = true;
-          clangd.enable = true;
-          elixirls.enable = true;
-          rust-analyzer = {
-            enable = true;
-            installCargo = true;
-            installRustc = true;
-          };
-        };
-        keymaps = {
-          diagnostic = {
-            "<leader>j" = "goto_next";
-            "<leader>k" = "goto_prev";
-          };
-          lspBuf = {
-            K = "hover";
-            gD = "references";
-            gd = "definition";
-            gi = "implementation";
-            gy = "type_definition";
-          };
-        };
-      };
+#@       lsp = {
+#@       enable = true;
+#@        servers = {
+#@          lua-ls.enable = true;
+#@          pyright.enable = true;
+#@          rnix-lsp.enable = true;
+#@          html.enable = true;
+#@          tsserver.enable = true;
+#@          clangd.enable = true;
+#@          elixirls.enable = true;
+#@          rust-analyzer = {
+#@            enable = true;
+#@            installCargo = true;
+#@            installRustc = true;
+#@          };
+#@        };
+#@        keymaps = {
+#@          diagnostic = {
+#@            "<leader>j" = "goto_next";
+#@            "<leader>k" = "goto_prev";
+#@          };
+#@          lspBuf = {
+#@            K = "hover";
+#@            gD = "references";
+#@            gd = "definition";
+#@            gi = "implementation";
+#@            gy = "type_definition";
+#@          };
+#@        };
+#@      };
 
       harpoon = {
         enable = true;
